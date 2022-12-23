@@ -310,3 +310,59 @@ var fibonacci = (function () {
     return cache[n-1] + cache[n-2];
   };
 })(); // Immediately invoke to create a closure for the cache variable
+
+task 4 kyu 
+https://www.codewars.com/kata/52a382ee44408cea2500074c/java
+import java.util.BitSet;
+
+public class Matrix {
+
+    private final int[][] matrix;
+    private final BitSet removedColumns;
+
+    private Matrix(int[][] matrix) {
+        this.matrix = matrix;
+        this.removedColumns = new BitSet(matrix.length);
+    }
+
+    private int determinant(int step) {
+        if (step==matrix.length) {
+            return 1;
+        }
+        int result = 0;
+        int multiplier = 1;
+        int[] firstRow = matrix[step];
+        for (int j = 0; j < firstRow.length; j++) {
+            if (removedColumns.get(j)) {
+                continue;
+            }
+            removedColumns.set(j);
+            result += multiplier * firstRow[j] * determinant(step+1);
+            removedColumns.clear(j);
+            multiplier *= -1;
+        }
+        return result;
+    }
+
+    public static int determinant(int[][] matrix) {
+        return new Matrix(matrix).determinant(0);
+    }
+}
+fav 
+public class Matrix {
+    
+    public static int determinant(int[][] m) {
+        int d = 0, size = m.length;
+        if (size == 1) return m[0][0];
+        
+        for (int n = 0 ; n < size ; n++) {
+            int[][] newM = new int[size-1][size-1];
+            for (int x = 1 ; x < size ; x++) for (int y = 0 ; y < size ; y++) {
+                if (y == n) continue;
+                newM[x-1][y + (y>n ? -1 : 0)] = m[x][y];
+            }
+            d += (n%2!=0 ? -1 : 1) * m[0][n] * determinant(newM);
+        }
+        return d;
+    }
+}
