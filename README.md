@@ -1,4 +1,58 @@
 # add
+#This is additional file where I diwnloaded all the tasks that I solved for some extra points
+### Task 5 kyu 
+https://www.codewars.com/kata/513e08acc600c94f01000001
+The rgb function is incomplete. Complete it so that passing in RGB decimal values will result in a hexadecimal representation being returned. Valid decimal values for RGB are 0 - 255. Any values that fall out of that range must be rounded to the closest valid value.
+
+### My solution 
+```Java
+public class RgbToHex {
+
+    public static String rgb(int r, int g, int b) {
+        return ( toHexString ( r ) + toHexString ( g ) + toHexString ( b ) ).toUpperCase ();
+    }
+
+    private static String toHexString ( int k )
+    {
+        if ( k <= 0 )
+        {
+            return "00";
+        }
+
+        if ( k >= 255 )
+        {
+            return "FF";
+        }
+
+        String hex = Integer.toHexString ( k ).toUpperCase ();
+        if ( hex.length () == 1 )
+        {
+            hex = "0" + hex;
+        }
+
+        return hex;
+    }
+}
+```
+
+### Fav solution
+```Java
+public class RgbToHex {
+
+    public static String rgb(int r, int g, int b) {
+        if(r < 0) r = 0;
+        if(g < 0) g = 0;
+        if(b < 0) b = 0;
+        if(r > 255) r = 255;
+        if(g > 255) g = 255;
+        if(b > 255) b = 255;
+
+        return String.format("%02X%02X%02X", r, g, b);
+    }
+}
+```
+Iconic 
+
 ### Task 5 kyu 
 https://www.codewars.com/kata/55f4e56315a375c1ed000159
 ### My solution
