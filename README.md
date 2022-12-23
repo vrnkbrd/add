@@ -1,7 +1,8 @@
 # add
-task 5 kyu 
+### Task 5 kyu 
 https://www.codewars.com/kata/55f4e56315a375c1ed000159
-my sol 
+### My solution
+```Java
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -33,8 +34,9 @@ public class PowerSumDig {
         }
         return sum;
     }
-	
-  fav sol 
+```	
+###Fav solution
+```Java
   public class PowerSumDig {
     
     public static long powerSumDigTerm(int n) {
@@ -45,10 +47,11 @@ public class PowerSumDig {
         return arr[n-1];
     }
 }
-
-task 5 kyu 
+```
+###Task 5 kyu 
 https://www.codewars.com/kata/51edd51599a189fe7f000015/solutions/java?filter=all&sort=oldest&invalids=false
-my sol 
+### My solution
+```Java
 public class Solution {
   public static double solution(int[] arr1, int[] arr2) {
     int sum = 0;
@@ -58,18 +61,21 @@ public class Solution {
     return (double)sum / arr1.length;
   }
 }
-fav 
+```
+### Fav solution
+```Java
 public class Solution {
     public static double solution(int[] arr1, int[] arr2) {
         return java.util.stream.IntStream.range(0, arr1.length).map(i -> arr1[i] - arr2[i]).map(diff -> diff * diff).average().getAsDouble();
     }
 }
-
-task 5 kyu
+Streams and maps structures were used. The solution is incrediblel short
+```
+### Task 5 kyu
 https://www.codewars.com/kata/54f8693ea58bce689100065f
-my sol
+### My solution
+```Java
 class Decomp {
-  
   public static String decomposeAux(String nrStr, String drStr) {
     long nr = Long.parseLong(nrStr);
     long dr = Long.parseLong(drStr);
@@ -98,7 +104,9 @@ class Decomp {
       return "[" + res + "]";
   }
 }
-fav 
+```
+### Fav solution
+```Java
 class Decomp {
   
   public static String decompose(String nrStr, String drStr) {
@@ -121,11 +129,13 @@ class Decomp {
       return s.isEmpty()?"[]":"["+s.substring(2)+"]";
 }
 }
-task 5 kyu 
+```
+
+### Task 5 kyu 
 https://www.codewars.com/kata/635b8fa500fba2bef9189473/java
-my sol
+### My solution
+```Java
 public class PhoneWords {
-  
   public static String phoneWords(String str) {
     StringBuilder sb = new StringBuilder();
 		char[][] letters = {{' '}, //0
@@ -165,9 +175,10 @@ public class PhoneWords {
 	    sb.append(lastChar != '1' ? lastChar : "");
 		return sb.toString();
   }  
-  
 }
-fav 
+```
+### Fav solution
+```Java
 public class PhoneWords {
   
   public static String phoneWords(String str) {
@@ -205,10 +216,12 @@ public class PhoneWords {
   }  
   
 }
+```
 
-task 4 kyu 
+### Task 4 kyu 
 https://www.codewars.com/kata/51ba717bb08c1cd60f00002f/java
-my sol 
+### My solution
+```Java
 class Solution {
 		public static String rangeExtraction(int[] arr) {
     		String ans = "";
@@ -229,7 +242,9 @@ class Solution {
 		return ans.substring(0, ans.length()-1);
     }
 }
-fav sol 
+```
+### Fav solution
+```Java
 class Solution {
 		public static String rangeExtraction(int[] arr) {
         String str = String.valueOf(arr[0]);
@@ -238,10 +253,11 @@ class Solution {
         return str.replaceAll("<([^,]*<)+","-").replaceAll("<",",");
     }
 }
-
-task 5 kyu 
+```
+### Task 5 kyu  
 https://www.codewars.com/kata/61fef3a2d8fa98021d38c4e5/java
-my sol
+### My solution
+```Java
 class Solution {
   public static long cardGame(long n) {
     return f(n, 0, new long[] {0, 0})[0];
@@ -262,7 +278,9 @@ class Solution {
     return f(n, 1 - turn, state);
   }
 }
-fav 
+```
+### Fav solution
+```Java
 class Solution {
   public static long cardGame(long N) {
     long s=0;
@@ -278,9 +296,12 @@ class Solution {
   
   static private boolean getOne(long N){ return N%2L==1 || N>4L && N/2L%2==0; }
 }
-task 5 kyu 
+``` 
+
+### Task 5 kyu 
 https://www.codewars.com/kata/529adbf7533b761c560004e5/solutions/javascript
-sol
+### My solution
+```Java
 var fibonacci = function () {
   var m = function(n,formula) { 
     return (m[n] || (m[n]=formula())); 
@@ -291,7 +312,9 @@ var fibonacci = function () {
     return m(n, function() { return fibonacci(n-1) + fibonacci(n-2); });
   };
 }();
-fav 
+```
+### Fav solution
+```Java
 var fibonacci = (function () {
   var cache = {};
   
@@ -310,9 +333,12 @@ var fibonacci = (function () {
     return cache[n-1] + cache[n-2];
   };
 })(); // Immediately invoke to create a closure for the cache variable
+```
 
-task 4 kyu 
+### Task 4 kyu 
 https://www.codewars.com/kata/52a382ee44408cea2500074c/java
+### My solution
+```Java
 import java.util.BitSet;
 
 public class Matrix {
@@ -348,7 +374,9 @@ public class Matrix {
         return new Matrix(matrix).determinant(0);
     }
 }
-fav 
+```
+### Fav solution 
+```Java
 public class Matrix {
     
     public static int determinant(int[][] m) {
@@ -366,10 +394,11 @@ public class Matrix {
         return d;
     }
 }
-
-task 5 kyu 
+```
+### task 5 kyu 
 https://www.codewars.com/kata/5541f58a944b85ce6d00006a/java
-my sol 
+### My solution
+```Java
 public class ProdFib { // must be public for codewars	
 	
 	public static long[] productFib(long prod) {
@@ -392,7 +421,9 @@ public class ProdFib { // must be public for codewars
       }
    }
 }
-fav 
+```
+### Fav solution
+```Java
 public class ProdFib { // must be public for codewars	
 	
 	public static long[] productFib(long prod) {
@@ -406,11 +437,11 @@ public class ProdFib { // must be public for codewars
     return new long[] { a, b, a * b == prod ? 1 : 0 };
    }
 }
-
-task 5 kyu 
-task 
+```
+### Task 5 kyu 
 https://www.codewars.com/kata/526dbd6c8c0eb53254000110/java
-my sol 
+### My solution
+```Java
 public class SecureTester{
   
   public static boolean alphanumeric(String s){
@@ -423,16 +454,21 @@ public class SecureTester{
 return true;
 }
   }
-fav sol 
+  ```
+### Fav solution
+```Java 
 public class SecureTester {
   public static boolean alphanumeric(String s) {
     return s.matches("[A-Za-z0-9]+");
   }
 }
+Very short and exclusive sol
+```
 
-task 5 kyu 
+### Task 5 kyu 
 https://www.codewars.com/kata/55a29405bc7d2efaff00007c/java
-my sol 
+### My solution
+```Java
 public class Suite {
 	
 	public static double going(int n) {
@@ -444,7 +480,9 @@ public class Suite {
     	return Math.floor(r * Math.pow(10, 6)) / Math.pow(10, 6);
 	}
 }
-fav sol 
+```
+### Fav solution
+```Java
 public class Suite {
 	
 	public static double going(int n) {
@@ -457,3 +495,4 @@ public class Suite {
       return (int) (result * 1e6) / 1e6;
 	}
 }
+```
