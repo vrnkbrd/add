@@ -366,3 +366,94 @@ public class Matrix {
         return d;
     }
 }
+
+task 5 kyu 
+https://www.codewars.com/kata/5541f58a944b85ce6d00006a/java
+my sol 
+public class ProdFib { // must be public for codewars	
+	
+	public static long[] productFib(long prod) {
+  
+      long prodTotal = 0;
+      long fibFirst = 0;
+      long fibSecond = 1;
+      
+      while(prodTotal < prod){        
+        long fibNumber = fibFirst + fibSecond;
+        fibFirst = fibSecond;
+        fibSecond = fibNumber;
+        prodTotal = fibFirst * fibSecond;
+      }
+      
+      if(prodTotal == prod){
+          return new long[]{fibFirst, fibSecond, 1};
+      } else {
+          return new long[]{fibFirst, fibSecond, 0};
+      }
+   }
+}
+fav 
+public class ProdFib { // must be public for codewars	
+	
+	public static long[] productFib(long prod) {
+		long a = 0L;
+    long b = 1L;
+    while (a * b < prod) {
+      long tmp = a;
+      a = b;
+      b = tmp + b;
+    }
+    return new long[] { a, b, a * b == prod ? 1 : 0 };
+   }
+}
+
+task 5 kyu 
+task 
+https://www.codewars.com/kata/526dbd6c8c0eb53254000110/java
+my sol 
+public class SecureTester{
+  
+  public static boolean alphanumeric(String s){
+    if(s.length()==0) return false;
+    for(int j =0; j < s.length(); j++) {
+      char c = s.charAt(j);
+      if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')) continue;
+      else return false; 
+  }
+return true;
+}
+  }
+fav sol 
+public class SecureTester {
+  public static boolean alphanumeric(String s) {
+    return s.matches("[A-Za-z0-9]+");
+  }
+}
+
+task 5 kyu 
+https://www.codewars.com/kata/55a29405bc7d2efaff00007c/java
+my sol 
+public class Suite {
+	
+	public static double going(int n) {
+		  double r = 1.0; double k = 1.0;
+    	for (int i = n; i >=2; i--) {
+        	k = k * (1.0 / i);
+        	r += k;
+		  }
+    	return Math.floor(r * Math.pow(10, 6)) / Math.pow(10, 6);
+	}
+}
+fav sol 
+public class Suite {
+	
+	public static double going(int n) {
+		  double result = 1.0;
+      double frac = 1.0;
+      while (n > 1) {
+          frac /= n--;
+          result += frac;
+      }
+      return (int) (result * 1e6) / 1e6;
+	}
+}
