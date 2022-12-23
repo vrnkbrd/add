@@ -205,3 +205,36 @@ public class PhoneWords {
   }  
   
 }
+
+task 4 kyu 
+https://www.codewars.com/kata/51ba717bb08c1cd60f00002f/java
+my sol 
+class Solution {
+		public static String rangeExtraction(int[] arr) {
+    		String ans = "";
+		
+		for(int e = 0; e<arr.length; e++){
+			for(int j = arr.length-1; j>=e; j--){
+				if(arr[j]-arr[e]==j-e && j-e >= 2){
+					ans+=arr[e]+"-"+arr[j]+",";
+					e=j;
+					j=0;
+				}else if(j==e){
+					ans+=arr[e]+",";
+				}
+			}
+			
+		}
+		
+		return ans.substring(0, ans.length()-1);
+    }
+}
+fav sol 
+class Solution {
+		public static String rangeExtraction(int[] arr) {
+        String str = String.valueOf(arr[0]);
+        for (int i = 1; i < arr.length; i++)
+            str += (arr[i-1] == arr[i]-1 ? "<":",") + String.valueOf(arr[i]);
+        return str.replaceAll("<([^,]*<)+","-").replaceAll("<",",");
+    }
+}
