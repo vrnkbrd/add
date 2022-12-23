@@ -238,3 +238,43 @@ class Solution {
         return str.replaceAll("<([^,]*<)+","-").replaceAll("<",",");
     }
 }
+
+task 5 kyu 
+https://www.codewars.com/kata/61fef3a2d8fa98021d38c4e5/java
+my sol
+class Solution {
+  public static long cardGame(long n) {
+    return f(n, 0, new long[] {0, 0})[0];
+  }
+  
+  static long[] f(long n, int turn, long[] state) {
+    if (n == 0) return state;
+    if (n % 2 == 1) {
+      n--;
+      state[turn]++;
+    } else if (n < 10 || n % 4 > 0) {
+      n /= 2;
+      state[turn] += n;
+    } else {
+      n--;
+      state[turn]++;
+    }
+    return f(n, 1 - turn, state);
+  }
+}
+fav 
+class Solution {
+  public static long cardGame(long N) {
+    long s=0;
+    while(N>0){
+      s+= pick(N);
+      N = remain(remain(N));
+    }
+    return s;
+  }
+  
+  static private long pick(long N)     { return getOne(N) ? 1L : N/2L; }
+  static private long remain(long N)   { return getOne(N) ? N-1L : N/2L; }
+  
+  static private boolean getOne(long N){ return N%2L==1 || N>4L && N/2L%2==0; }
+}
