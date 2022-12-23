@@ -278,3 +278,35 @@ class Solution {
   
   static private boolean getOne(long N){ return N%2L==1 || N>4L && N/2L%2==0; }
 }
+task 5 kyu 
+https://www.codewars.com/kata/529adbf7533b761c560004e5/solutions/javascript
+sol
+var fibonacci = function () {
+  var m = function(n,formula) { 
+    return (m[n] || (m[n]=formula())); 
+  };
+  return function(n) {
+    if(n===0 || n===1) 
+      return n 
+    return m(n, function() { return fibonacci(n-1) + fibonacci(n-2); });
+  };
+}();
+fav 
+var fibonacci = (function () {
+  var cache = {};
+  
+  return function(n) {
+    
+    // Base case
+    if(n==0 || n == 1)
+        return n;
+    
+    // Recurse only if necessary
+    if(cache[n-2] === undefined)
+      cache[n-2] = fibonacci(n-2);
+    if(cache[n-1] === undefined)
+      cache[n-1] = fibonacci(n-1);
+    
+    return cache[n-1] + cache[n-2];
+  };
+})(); // Immediately invoke to create a closure for the cache variable
